@@ -1,0 +1,47 @@
+{
+    "name": "@nyar/sijuiacion-ir",
+    "displayName": "SijuiacionIR",
+    "description": "",
+    "version": "0.1.0",
+    "license": "MPL-2.0",
+    "main": "./dist/extension.js",
+    "engines": {
+        "vscode": "^1.32.1"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "scripts": {
+        "vscode:prepublish": "yarn run compile",
+        "pack": "webpack --config webpack.config.js",
+        "build": "tsc -b && ts-node ./syntaxes/snippet.ts",
+        "watch": "tsc -watch -p ./",
+        "test": "yarn run compile && node ./node_modules/vscode/bin/test"
+    },
+    "contributes": {
+        "languages": [
+            {
+                "id": "sijuiacion",
+                "aliases": [
+                    "Sijuiacion"
+                ],
+                "filenames": [
+                ],
+                "extensions": [
+                    ".sij"
+                ],
+                "configuration": "./syntaxes/sijuiacion.configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "sijuiacion",
+                "scopeName": "source.sij",
+                "path": "./syntaxes/sijuiacion.tmLanguage.json"
+            }
+        ]
+    },
+    "activationEvents": [
+        "*"
+    ]
+}
