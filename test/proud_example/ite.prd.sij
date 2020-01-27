@@ -1,0 +1,45 @@
+runtime operator
+filename "example_code\\ite.prd"
+line 1
+line 3
+line 3
+const #lambda x: lambda y: x == y#
+deref! eq_140737219109232
+line 4
+line 4
+const #print#
+deref! print_140737219109264
+line 5
+line 5
+deref print_140737219109264
+line 5
+line 5
+line 5
+deref eq_140737219109232
+line 5
+const #1#
+call 1
+line 5
+const #2#
+call 1
+goto-if if2170951176112.true
+line 5
+const #3#
+goto if2170951176112.end
+label if2170951176112.true
+line 5
+const #1#
+label if2170951176112.end
+call 1
+store __140737219109296
+line 7
+const #()#
+load __140737219109296
+deref eq_140737219109232
+deref print_140737219109264
+tuple 3
+tuple 0
+tuple 2
+print
+const #None#
+return

@@ -1,0 +1,33 @@
+module HW
+
+# extensible records(compiling to tuples!!)
+let print: forall a. a -> unit = extern "print"
+let add : forall a. a ->  a -> a = extern "lambda a: lambda b: add(a, b)"
+let hello_world: forall rho. {name: string | rho} -> unit = fun r ->
+    print (add "hello " r.name)
+
+let _ = hello_world {name = "thautwarm", age = 18, sex = 0.5 }
+
+# quotation and splicing
+let var = "b"
+let code = `(print ($add x $var))
+tellme code
+let row = {x = "n", print = print}
+
+let z = (fun x -> x,  fun y -> (2, y))
+let runcode = code {x = "n", print = print}
+tellme z
+
+let x =
+    let y = print in
+    let var = "b" in
+    let code = `(print ($add x $var)) in
+    let row = {x = "n", print = print} in
+    let z = (fun x -> x,  fun y -> (2, y)) in
+    let runcode = code {x = "n", print = print} in
+    tellme row in
+    tellme z in
+    tellme runcode in
+    runcode
+
+tellme x

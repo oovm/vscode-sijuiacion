@@ -1,0 +1,43 @@
+runtime operator
+filename "example_code\\debug.prd"
+line 1
+line 3
+line 4
+defun
+    filename "example_code\\debug.prd"
+    free []
+    args [f_140737219109232] {
+    line 4
+    line 5
+    line 5
+    defun
+        filename "example_code\\debug.prd"
+        free [f_140737219109232]
+        args [a_140737219109264] {
+        line 5
+        line 5
+        deref f_140737219109232
+        line 5
+        load a_140737219109264
+        call 1
+        line 5
+        deref f_140737219109232
+        line 5
+        load a_140737219109264
+        call 1
+        tuple 2
+        label pround.return
+        return
+    }
+    deref! g_140737219109296
+    label pround.return
+    return
+}
+store f2_140737219109328
+load f2_140737219109328
+tuple 1
+tuple 0
+tuple 2
+print
+const #None#
+return
