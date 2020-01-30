@@ -1,47 +1,53 @@
 {
-    "name": "@nyar/sijuiacion-ir",
-    "displayName": "SijuiacionIR",
-    "description": "",
-    "version": "0.2.0",
-    "license": "MPL-2.0",
-    "main": "./dist/extension.js",
-    "engines": {
-        "vscode": "^1.32.1"
-    },
-    "categories": [
-        "Snippets"
-    ],
-    "scripts": {
-        "vscode:prepublish": "yarn run compile",
-        "pack": "webpack --config webpack.config.js",
-        "pub": "npm publish --access=public",
-        "watch": "tsc -watch -p ./",
-        "test": "yarn run compile && node ./node_modules/vscode/bin/test"
-    },
-    "contributes": {
-        "languages": [
-            {
-                "id": "sijuiacion",
-                "aliases": [
-                    "Sijuiacion"
-                ],
-                "filenames": [
-                ],
-                "extensions": [
-                    ".sij"
-                ],
-                "configuration": "./syntaxes/sijuiacion.configuration.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "sijuiacion",
-                "scopeName": "source.sij",
-                "path": "./syntaxes/sijuiacion.tmLanguage.json"
-            }
-        ]
-    },
-    "activationEvents": [
-        "*"
-    ]
+	"name": "vscode-sijuiacion-ir",
+	"displayName": "SijuiacionIR",
+	"description": "",
+	"version": "0.3.3",
+	"license": "MPL-2.0",
+	"publisher": "Aster",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/GalAster/vscode-sijuiacion.git"
+	},
+	"icon": "resources/logo.png",
+	"engines": {
+		"vscode": "^1.32.1"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"scripts": {
+		"pub": "npm publish --access=public",
+		"pub:vsc": "vsce package"
+	},
+	"contributes": {
+		"languages": [
+			{
+				"id": "sijuiacion",
+				"aliases": [
+					"Sijuiacion"
+				],
+				"filenames": [],
+				"extensions": [
+					".sij"
+				],
+				"configuration": "./syntaxes/sijuiacion.configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "sijuiacion",
+				"scopeName": "source.sij",
+				"path": "./syntaxes/sijuiacion.tmLanguage.json"
+			}
+		]
+	},
+	"activationEvents": [
+		"*"
+	],
+	"__metadata": {
+		"id": "600e283e-0d2b-48ab-b264-ca291525101b",
+		"publisherDisplayName": "Aster",
+		"publisherId": "3406b78c-f287-4619-8d82-7c97998693e3"
+	}
 }

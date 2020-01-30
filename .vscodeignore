@@ -3,3 +3,5 @@ src/**
 test/**
 tsconfig.json
 cgmanifest.json
+
+resources/logo.ai

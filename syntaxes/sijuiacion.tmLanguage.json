@@ -1,8 +1,8 @@
 {
     "name": "Sijuiacion",
     "scopeName": "source.sij",
-    "version": "v0.0.1",
-    "uuid": "",
+    "version": "v0.3.0",
+    "uuid": "600e283e-0d2b-48ab-b264-ca291525101b",
     "information_for_contributors": [
         "aster: galaster@foxmail.com"
     ],
@@ -40,11 +40,27 @@
         "keywords": {
             "patterns": [
                 {
-                    "match": "\\b(const|store|deref|defun|runtime|deref|free|load|tuple|print|label|call|return|args|prj|goto-if-not|goto-if|goto)\\b",
+                    "match": "\\b(const|store|runtime|free|load|tuple|print|call|return|args|prj|pop|firstlineno|dup|indir|blockaddr|rot)\\s+",
                     "name": "keyword.control.flow.sij"
                 },
                 {
-                    "match": "\\b(filename|line|label|labels|label)\\b",
+                    "match": "\\b(switch|deref!|deref|defun)\\s+",
+                    "name": "keyword.control.flow.sij"
+                },
+                {
+                    "match": "\\b(label|goto-if-not|goto-if|goto)\\s+([.\\w]+)",
+                    "captures": {
+                        "1": {
+                            "name": "keyword.control.flow.sij"
+                        },
+                        "2": {
+                            "match": "\\w",
+                            "name": "entity.name.function.sij"
+                        }
+                    }
+                },
+                {
+                    "match": "\\b(filename|line|name)",
                     "name": "support.function.sij"
                 }
             ]
@@ -53,52 +69,52 @@
             "match": "\\b([0-9]+)\\b",
             "name": "constant.numeric.sij"
         },
-		"string": {
-			"begin": "\"",
-			"beginCaptures": {
-				"0": {
-					"name": "punctuation.definition.string.begin.sij"
-				}
-			},
-			"end": "\"",
-			"endCaptures": {
-				"0": {
-					"name": "punctuation.definition.string.end.sij"
-				}
-			},
-			"name": "string.quoted.double.sij",
-			"patterns": [
-				{
-					"include": "#stringcontent"
-				}
-			]
+        "string": {
+            "begin": "\"",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.begin.sij"
+                }
+            },
+            "end": "\"",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.end.sij"
+                }
+            },
+            "name": "string.quoted.double.sij",
+            "patterns": [
+                {
+                    "include": "#stringcontent"
+                }
+            ]
         },
         "stringcontent": {
-			"patterns": [
-				{
-					"match": "(?x)                # turn on extended mode\n  \\\\                # a literal backslash\n  (?:               # ...followed by...\n    [\"\\\\/bfnrt]     # one of these characters\n    |               # ...or...\n    u               # a u\n    [0-9a-fA-F]{4}) # and four hex digits",
-					"name": "constant.character.escape.json"
-				},
-				{
-					"match": "\\\\.",
-					"name": "invalid.illegal.unrecognized-string-escape.json"
-				}
-			]
-		},
-		"constant": {
-			"begin": "#",
-			"beginCaptures": {
-				"0": {
-					"name": "entity.name.type.class.start.sij"
-				}
-			},
-			"end": "#",
-			"endCaptures": {
-				"0": {
-					"name": "entity.name.type.class.end.sij"
-				}
-			},
-			"name": "entity.name.type.class.sij"
+            "patterns": [
+                {
+                    "match": "(?x)\\\\(?:[\"\\\\/bfnrt]|u[0-9a-fA-F]{4})",
+                    "name": "constant.character.escape.json"
+                },
+                {
+                    "match": "\\\\.",
+                    "name": "invalid.illegal.unrecognized-string-escape.json"
+                }
+            ]
+        },
+        "constant": {
+            "begin": "#",
+            "beginCaptures": {
+                "0": {
+                    "name": "entity.name.type.class.start.sij"
+                }
+            },
+            "end": "#",
+            "endCaptures": {
+                "0": {
+                    "name": "entity.name.type.class.end.sij"
+                }
+            },
+            "name": "entity.name.type.class.sij"
         },
         "variable": {
             "match": "\\b(\\w+)\\b",
