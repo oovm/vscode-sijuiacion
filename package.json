@@ -10,6 +10,10 @@
 		"url": "https://github.com/GalAster/vscode-sijuiacion.git"
 	},
 	"icon": "resources/logo.png",
+	"main": "./dist/extension.js",
+	"activationEvents": [
+		"onLanguage:arc"
+	],
 	"engines": {
 		"vscode": "^1.32.1"
 	},
@@ -42,9 +46,6 @@
 			}
 		]
 	},
-	"activationEvents": [
-		"*"
-	],
 	"__metadata": {
 		"id": "600e283e-0d2b-48ab-b264-ca291525101b",
 		"publisherDisplayName": "Aster",
