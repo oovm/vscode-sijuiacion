@@ -2,7 +2,7 @@
     "name": "@nyar/sijuiacion-ir",
     "displayName": "SijuiacionIR",
     "description": "",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "license": "MPL-2.0",
     "main": "./dist/extension.js",
     "engines": {
@@ -14,7 +14,7 @@
     "scripts": {
         "vscode:prepublish": "yarn run compile",
         "pack": "webpack --config webpack.config.js",
-        "build": "tsc -b && ts-node ./syntaxes/snippet.ts",
+        "pub": "npm publish --access=public",
         "watch": "tsc -watch -p ./",
         "test": "yarn run compile && node ./node_modules/vscode/bin/test"
     },
